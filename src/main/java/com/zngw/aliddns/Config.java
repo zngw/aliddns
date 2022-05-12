@@ -7,6 +7,7 @@ package com.zngw.aliddns;
  * @date 2021/6/28
  */
 public class Config {
+    public String ipUrl;            // 获取公网IP接口
     public String regionId;         // 地域ID,"cn-hangzhou"
     public String accessKeyId;      // 您的AccessKey ID
     public String secret;

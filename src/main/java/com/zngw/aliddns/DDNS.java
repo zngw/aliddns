@@ -10,6 +10,7 @@ import com.aliyuncs.alidns.model.v20150109.UpdateDomainRecordResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.google.gson.Gson;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -56,14 +57,12 @@ public class DDNS {
      * 获取当前主机公网IP
      */
     private String getCurrenHostIp() {
-        // 这里使用jsonip.com第三方接口获取本地IP
-        String jsonip = "https://jsonip.com";
         // 接口返回结果
         String result = "";
         BufferedReader in = null;
         try {
             // 使用HttpURLConnection网络请求第三方接口
-            URL url = new URL(jsonip);
+            URL url = new URL(cfg.ipUrl);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
@@ -96,6 +95,7 @@ public class DDNS {
         }
         return res;
     }
+
     /**
      * 获取主域名的所有解析记录列表
      */
@@ -161,6 +161,8 @@ public class DDNS {
                 System.out.println("域名 "+host+" 解析地址已修改为:" + ip);
 
                 recordsIp = ip;
+            } else {
+                System.out.println("域名 "+host+" 解析地址未发生改变:" + ip);
             }
         }
     }

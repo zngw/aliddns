@@ -1,9 +1,10 @@
 {
+  "ipUrl": "https://jsonip.com",
   "regionId": "cn-hangzhou",
   "accessKeyId": "你的AccessKeyID",
   "secret": "你的AccessKey Secret",
-  "tld":"zengwu.com.cn",
-  "rr": "a",
+  "tld":"修改的顶级域名",
+  "rr": "二级域名，若修改顶级域名使用@",
   "dnsInterval": 86400,
   "ipInterval": 10
 }
